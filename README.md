@@ -28,4 +28,9 @@ El proyecto está publicado en Vercel: [https://actividad14-wvpb.vercel.app](htt
 - [Captura del proyecto publicado en Vercel](evidencias/publicacion-vercel.png)
 - [Captura de la PWA pública](evidencias/pwa-publicada.png)
 - [Captura de datos antes de actualizar la PWA](evidencias/datos-antes-actualizacion.png)
+- [Captura del aviso de actualización](evidencias/actualizacion-disponible.png)
+- [Captura de la PWA actualizada](evidencias/actualizacion-aplicada.png)
+- [Captura de la versión 1.2.1](evidencias/version-actualizada.png)
 - [Plan de pruebas y resultados](PLAN_DE_PRUEBAS.md)
+
+**Pendiente para cerrar la evidencia de instalación:** abre la URL pública en Edge, selecciona **Configuración y más → Aplicaciones → Instalar este sitio como una aplicación**, y guarda una captura de la app abierta desde Inicio. El repositorio incluye la PWA instalable, pero esta instalación no se completó durante la sesión.

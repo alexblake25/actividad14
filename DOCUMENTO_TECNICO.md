@@ -80,7 +80,7 @@ La carpeta que se publica es **`public/`**. Es un sitio estático: el hospedaje 
 ### Vercel (servicio seleccionado)
 El proyecto `actividad14-wvpb` está vinculado al repositorio `https://github.com/alexblake25/actividad14`, rama `main`. URL de producción: `https://actividad14-wvpb.vercel.app`. El panel de Vercel muestra el despliegue de producción en estado **Ready**. El archivo `vercel.json` define **Build command:** `npm run build`, **Output Directory:** `public` y **Framework Preset:** Other (sin framework). Vercel proporciona HTTPS automáticamente.
 
-Los reportes Lighthouse de producción, en móvil y escritorio, se guardan en `evidencias/lighthouse-production-mobile.report.html` y `evidencias/lighthouse-production-desktop.report.html`. Las capturas del panel de Vercel y de la PWA publicada están en `evidencias/`.
+Los reportes Lighthouse de producción, en móvil y escritorio, se guardan en `evidencias/lighthouse-production-mobile.report.html` y `evidencias/lighthouse-production-desktop.report.html`. Las capturas del panel de Vercel, la página pública, el aviso de actualización y la versión 1.2.1 están en `evidencias/`. La instalación desde el menú **Configuración y más → Aplicaciones → Instalar este sitio como una aplicación** y la captura de la app abierta quedan pendientes de realizar en Edge.
 
 ### GitHub Pages
 1. Ejecuta `npm install` y `npm run build`, y publica el contenido de `public/`.
