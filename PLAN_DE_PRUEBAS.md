@@ -3,7 +3,7 @@
 ## Parte 1. Preparación y planificación de pruebas
 
 **Aplicación seleccionada:** Actividades Académicas v1.1.0, la PWA de este proyecto.
-**URL local:** http://localhost:4000 · **URL pública:** Pendiente de completar el primer despliegue Vercel.
+**URL local:** http://localhost:4000 · **URL pública:** https://actividad14-wvpb.vercel.app
 **Navegador de auditoría:** Microsoft Edge 157.0.4341.42 · **Lighthouse:** 13.6.0 (Mobile y Desktop)
 **Fecha de auditoría:** 07/11/2026 **Integrantes:** ______________________
 
@@ -64,15 +64,15 @@ DevTools → Lighthouse → Navigation, Mobile (y luego Desktop), categorías: P
 
 | ID | Indicador | Procedimiento | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|
-| L-01 | Performance | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, 11/11/2026, localhost: Mobile 99/100; Desktop 100/100. | Aprobado en local |
-| L-02 | Accessibility | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, 11/11/2026, localhost: Mobile 100/100; Desktop 100/100. | Aprobado en local |
-| L-03 | Best practices | Ejecutar auditoría | ≥ 90; verificar también HTTPS en producción | Lighthouse 13.6.0, 11/11/2026: Mobile y Desktop 100/100 en local. HTTPS de producción pendiente del despliegue. | Aprobado en local; producción pendiente |
-| L-04 | SEO | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, 11/11/2026: Mobile y Desktop 100/100 en local. | Aprobado en local |
+| L-01 | Performance | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, producción: Mobile 90/100; Desktop 96/100 (repetición para confirmar estabilidad). | Aprobado en producción |
+| L-02 | Accessibility | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, producción: Mobile 100/100; Desktop 100/100. | Aprobado en producción |
+| L-03 | Best practices | Ejecutar auditoría | ≥ 90; verificar también HTTPS en producción | Lighthouse 13.6.0, producción: Mobile 100/100; Desktop 100/100. La URL pública responde por HTTPS. | Aprobado en producción |
+| L-04 | SEO | Ejecutar auditoría | ≥ 90 | Lighthouse 13.6.0, producción: Mobile 100/100; Desktop 100/100. | Aprobado en producción |
 | L-05 | Instalable | Application → Manifest → "Installability" | Sin errores | | |
 
 ### Oportunidades de mejora (mínimo 3)
 
-Las mediciones anteriores del 07/11/2026 se conservan como historial. La auditoría actual se volvió a ejecutar el 11/11/2026 con Lighthouse 13.6.0; los resultados vigentes aparecen en L-01 a L-04 y los reportes adjuntos.
+Las mediciones anteriores del 07/11/2026 se conservan como historial. El 11/11/2026 se ejecutó Lighthouse 13.6.0 contra la URL pública; los resultados vigentes y puntajes por categoría aparecen en los reportes HTML adjuntos.
 
 | # | Hallazgo | Corrección aplicada | Antes | Después |
 |---|---|---|---|---|
@@ -80,7 +80,7 @@ Las mediciones anteriores del 07/11/2026 se conservan como historial. La auditor
 | 2 | `app.js` y `styles.css` tenían vida útil de caché HTTP de 0 segundos. | Se configuró caché de una semana para JavaScript y CSS en el servidor y en `public/_headers`; el Service Worker usa `cache: 'reload'` durante la instalación para evitar precargar copias HTTP obsoletas. | 0 segundos de vida útil reportada. | 604800 segundos (una semana); el insight de Lighthouse aún recomienda una vida útil mayor. |
 | 3 | JavaScript sin minificar: Lighthouse estimó 4 KiB de ahorro. | Se agregó un build reproducible con Terser: `npm run build` genera `public/app.min.js` desde `public/app.js`. | En la medición inicial: 15701 bytes; alerta de JavaScript sin minificar (ahorro estimado: 4 KiB). | Bundle v8: fuente 16994 bytes y minificado 13829 bytes (3165 bytes menos). La alerta desapareció en la auditoría anterior a v8; falta confirmarlo en la auditoría actual. |
 
-Los reportes HTML de estas auditorías están en `evidencias/lighthouse-mobile.report.html` y `evidencias/lighthouse-desktop.report.html`. Mobile reportó una oportunidad de redirección; Performance quedó en 99/100. La auditoría local no sustituye la verificación de HTTPS ni las pruebas en la URL publicada.
+Los reportes HTML de producción están en `evidencias/lighthouse-production-mobile.report.html` y `evidencias/lighthouse-production-desktop.report.html`. La captura del estado publicado en Vercel y la página PWA están en `evidencias/publicacion-vercel.png` y `evidencias/pwa-publicada.png`. La captura de los datos antes de la actualización está en `evidencias/datos-antes-actualizacion.png`.
 
 ## 4. Pruebas de compatibilidad
 
@@ -95,16 +95,16 @@ Para una comprobación completa de compatibilidad entre navegadores, repetir est
 
 ## 5. Publicación, instalación y actualización
 
-El servicio elegido es Vercel y el repositorio destino es `https://github.com/alexblake25/actividad14`. La URL pública queda pendiente de completar el primer despliegue. En local se actualizó la app de 1.0.0 a 1.1.0, se cambió el texto de bienvenida y el Service Worker detectó y activó una versión nueva; la actividad almacenada se conservó.
+El servicio elegido es Vercel. El repositorio `https://github.com/alexblake25/actividad14` está conectado a `main`; Vercel muestra producción **Ready** en `https://actividad14-wvpb.vercel.app`. En local ya se comprobó una actualización anterior de 1.0.0 a 1.1.0. Para esta entrega se publica también la versión 1.2.0 / Service Worker v11 y se registra el resultado de conservación de datos en U-01 a U-03.
 
 | ID | Funcionalidad | Procedimiento | Resultado esperado | Resultado obtenido | Estado |
 |---|---|---|---|---|---|
-| P-01 | HTTPS | Abrir la URL pública | Candado en la barra; sin avisos de contenido mixto | | |
-| P-02 | Funciones en producción | Repetir F-03, F-06, F-08, O-03 en la URL pública | Mismos resultados que en local | | |
+| P-01 | HTTPS | Abrir la URL pública | Candado en la barra; sin avisos de contenido mixto | `https://actividad14-wvpb.vercel.app` respondió HTTP 200; página, manifest y Service Worker cargaron sobre HTTPS. | Aprobado |
+| P-02 | Funciones en producción | Repetir F-03, F-06, F-08, O-03 en la URL pública | Mismos resultados que en local | Se comprobó alta, edición, eliminación y persistencia de datos en la URL pública. | Aprobado |
 | I-01 | Criterios de instalación | Ícono de instalar en la barra de direcciones o Ajustes → **Instalar aplicación** | El navegador ofrece instalar | | |
 | I-02 | Nombre e ícono | Instalar la app | Se ve "Actividades" con el ícono azul de palomita | | |
 | I-03 | App instalada | Abrir desde el escritorio / pantalla de inicio | Abre en ventana propia (standalone) y las pantallas funcionan | | |
-| U-01 | Nueva versión | Cambiar texto, versión de app y versión del SW; publicar | Aparece el banner de actualización | Al pasar de la versión 1.0.0/SW v2 a 1.1.0/SW v3 se mostró el banner. Después hubo actualizaciones locales v4 y v5 por cambios de CSS/API. | Aprobado en local |
-| U-02 | Aplicar actualización | Pulsar **Actualizar** | La app recarga con el nuevo texto y versión en Ajustes | Se activó el worker nuevo; Ajustes mostró 1.1.0 y el Inicio mostró el nuevo texto de bienvenida. | Aprobado en local |
-| U-03 | Datos conservados | Revisar la lista de actividades después de actualizar | Las actividades siguen intactas | "Dato a conservar en actualización" permaneció en `localStorage` y en la lista tras activar v3. | Aprobado |
+| U-01 | Nueva versión | Cambiar texto, versión de app y versión del SW; publicar | Aparece el banner de actualización | Se prepara la versión 1.2.0 y SW v11; verificar que Vercel termine el despliegue y el navegador detecte la actualización. | Pendiente |
+| U-02 | Aplicar actualización | Pulsar **Actualizar** | La app recarga con el nuevo texto y versión en Ajustes | Pendiente de aplicar la actualización en el navegador compatible. | Pendiente |
+| U-03 | Datos conservados | Revisar la lista de actividades después de actualizar | Las actividades siguen intactas | Se guardó "Dato a conservar en actualización" en la app pública antes del despliegue; verificar tras activar el SW v11. | Pendiente |
 | U-04 | Caché antigua | Application → Cache Storage | Solo existe la caché de la versión activa | Al actualizar a v10, se eliminaron las cachés v8 y v9; quedó solo `actividades-v10` y los datos de actividades siguieron presentes. | Aprobado |

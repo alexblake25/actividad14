@@ -19,10 +19,13 @@ El servidor usa módulos nativos de Node. Para regenerar el JavaScript minificad
 
 ## Publicar
 
-El despliegue seleccionado es Vercel, vinculado al repositorio `https://github.com/alexblake25/actividad14`. El archivo `vercel.json` configura `npm run build` y `public` como carpeta de publicación; Vercel usa HTTPS automáticamente.
+El proyecto está publicado en Vercel: [https://actividad14-wvpb.vercel.app](https://actividad14-wvpb.vercel.app). El despliegue está vinculado al repositorio `https://github.com/alexblake25/actividad14`. El archivo `vercel.json` configura `npm run build` y `public` como carpeta de publicación; Vercel proporciona HTTPS automáticamente.
 
 ## Evidencias
 
-- [Reporte Lighthouse móvil](evidencias/lighthouse-mobile.report.html)
-- [Reporte Lighthouse escritorio](evidencias/lighthouse-desktop.report.html)
+- [Reporte Lighthouse de producción móvil](evidencias/lighthouse-production-mobile.report.html)
+- [Reporte Lighthouse de producción escritorio](evidencias/lighthouse-production-desktop.report.html)
+- [Captura del proyecto publicado en Vercel](evidencias/publicacion-vercel.png)
+- [Captura de la PWA pública](evidencias/pwa-publicada.png)
+- [Captura de datos antes de actualizar la PWA](evidencias/datos-antes-actualizacion.png)
 - [Plan de pruebas y resultados](PLAN_DE_PRUEBAS.md)

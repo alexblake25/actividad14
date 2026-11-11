@@ -27,7 +27,7 @@ pwa-actividades/
 ├── .gitignore               Excluye dependencias y configuración local
 ├── PLAN_DE_PRUEBAS.md
 ├── DOCUMENTO_TECNICO.md
-├── evidencias/              Reportes HTML de Lighthouse móvil y escritorio
+├── evidencias/              Reportes Lighthouse y capturas de la publicación
 ├── tools/gen_icons.py        Generador de iconos PNG
 └── public/
     ├── index.html
@@ -78,9 +78,9 @@ La carpeta que se publica es **`public/`**. Es un sitio estático: el hospedaje 
 5. *Deploy*. La URL queda como `https://<nombre>.netlify.app` (HTTPS automático).
 
 ### Vercel (servicio seleccionado)
-El repositorio configurado es `https://github.com/alexblake25/actividad14`. El archivo `vercel.json` define **Build command:** `npm run build`, **Output Directory:** `public` y **Framework Preset:** Other (sin framework). Vincula el repositorio en Vercel y despliega la rama `main`; Vercel proporciona HTTPS automáticamente.
+El proyecto `actividad14-wvpb` está vinculado al repositorio `https://github.com/alexblake25/actividad14`, rama `main`. URL de producción: `https://actividad14-wvpb.vercel.app`. El panel de Vercel muestra el despliegue de producción en estado **Ready**. El archivo `vercel.json` define **Build command:** `npm run build`, **Output Directory:** `public` y **Framework Preset:** Other (sin framework). Vercel proporciona HTTPS automáticamente.
 
-Los reportes locales de Lighthouse se guardan en `evidencias/lighthouse-mobile.report.html` y `evidencias/lighthouse-desktop.report.html`. El despliegue y las pruebas sobre la URL pública deben quedar confirmados después de autorizar Vercel.
+Los reportes Lighthouse de producción, en móvil y escritorio, se guardan en `evidencias/lighthouse-production-mobile.report.html` y `evidencias/lighthouse-production-desktop.report.html`. Las capturas del panel de Vercel y de la PWA publicada están en `evidencias/`.
 
 ### GitHub Pages
 1. Ejecuta `npm install` y `npm run build`, y publica el contenido de `public/`.
