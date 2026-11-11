@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Actividades Académicas</title>
+  <meta name="description" content="Administra tus tareas, exámenes y proyectos escolares, incluso sin conexión.">
+  <meta name="theme-color" content="#1e5bd8">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preload" href="styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.css"></noscript>
+</head>
+<body>
+  <header class="topbar">
+    <h1>📚 Actividades Académicas</h1>
+    <span id="estado-red" class="badge badge-online" role="status" aria-live="polite">En línea</span>
+  </header>
+
+  <div id="banner-actualizacion" class="banner" hidden>
+    <span>Hay una nueva versión disponible.</span>
+    <button id="btn-actualizar" class="btn btn-small">Actualizar</button>
+  </div>
+
+  <main id="app" tabindex="-1"></main>
+
+  <nav class="tabbar" aria-label="Navegación principal">
+    <a href="#/inicio" data-ruta="inicio">🏠<span>Inicio</span></a>
+    <a href="#/actividades" data-ruta="actividades">📝<span>Actividades</span></a>
+    <a href="#/ajustes" data-ruta="ajustes">⚙️<span>Ajustes</span></a>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="app.min.js" defer></script>
+</body>
+</html>

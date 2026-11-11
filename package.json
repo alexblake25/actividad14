@@ -1,0 +1,14 @@
+{
+  "name": "pwa-actividades-academicas",
+  "version": "1.0.0",
+  "description": "PWA para administrar actividades académicas (Actividad 14)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build": "terser public/app.js --compress --mangle --output public/app.min.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "terser": "^5.51.2"
+  }
+}
