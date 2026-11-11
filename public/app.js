@@ -1,5 +1,5 @@
 /* Actividades Académicas - lógica de la PWA */
-const APP_VERSION = '1.2.0';
+const APP_VERSION = '1.2.1';
 const TEXTO_BIENVENIDA = 'Bienvenido: tu espacio académico está actualizado y listo para organizar tus entregas.';
 const LS_KEY = 'actividades.v1';
 const LS_CONSEJO = 'consejo.cache';

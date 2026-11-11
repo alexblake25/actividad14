@@ -49,7 +49,7 @@ node server.js
 
 El puerto es 4000 por defecto; se puede cambiar con la variable `PORT` (necesario en algunos hospedajes que asignan el puerto). Tras modificar `public/app.js`, ejecutar `npm install` una vez y `npm run build` para regenerar `public/app.min.js`.
 El servidor local envía una política de caché de una semana para JavaScript y CSS; el Service Worker fuerza una descarga nueva de los recursos al instalar una versión, para no reutilizar una copia HTTP obsoleta.
-La hoja de estilos se precarga y se aplica al terminar su descarga; `<noscript>` conserva el estilo cuando JavaScript está deshabilitado.
+La hoja de estilos se aplica mediante una hoja normal de CSS para evitar cambios de diseño después del primer renderizado. El script de la aplicación usa `defer`.
 
 ## 5. Parámetros de configuración
 

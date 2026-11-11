@@ -1,6 +1,6 @@
 /* Service Worker - Actividades Académicas
    Para publicar una nueva versión, cambia el número de VERSION. */
-const VERSION = 'v11';
+const VERSION = 'v12';
 const CACHE = `actividades-${VERSION}`;
 const API_CONSEJO = 'https://dummyjson.com/quotes/random';
 
